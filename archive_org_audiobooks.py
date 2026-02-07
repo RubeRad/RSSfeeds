@@ -41,7 +41,7 @@ items = ''.join(rss_item(i+1, f) for i,f in enumerate(mp3s))
 rss = f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-  <title>The Secret of Chimneys</title>
+  <title>The Seven Dials</title>
   <link>{DETL}</link>
   <description>Audiobook chapters</description>
   {items}
