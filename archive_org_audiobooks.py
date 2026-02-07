@@ -5,7 +5,8 @@ import re
 import requests
 from xml.sax.saxutils import escape
 
-ITEM = 'the-secret-of-chimneys-by-agatha-christie'
+#ITEM = 'the-secret-of-chimneys-by-agatha-christie'
+ITEM = 'the-seven-dials-mystery-1929-agatha-christie-read-by-rob-jones'
 DLOD = f'https://archive.org/download/{ITEM}'
 META = re.sub('download', 'metadata', DLOD)
 DETL = re.sub('download', 'details',  DLOD)
@@ -20,8 +21,9 @@ mp3s = [
 # assume they are sorted same as in the DLOD page
 
 def rss_item(n, f):
-    mch = re.search(r'(\d+)\s(\d+).mp3', f['name'])
-    title = f'Part {mch.group(1)}, Chapter {mch.group(2)}'
+    #mch = re.search(r'(\d+)\s(\d+).mp3', f['name'])
+    #title = f'Part {mch.group(1)}, Chapter {mch.group(2)}'
+    title = f['title']
     url = f"{DLOD}/{f['name']}"
     length = f.get('size', '0')
     return f"""
@@ -47,4 +49,6 @@ rss = f"""<?xml version="1.0" encoding="UTF-8"?>
 </rss>
 """
 
-open('chimneys.xml', 'w').write(rss)
+#fname = 'chimneys.xml'
+fname = '7dials.xml'
+open(fname, 'w').write(rss)
