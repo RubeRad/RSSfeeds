@@ -26,7 +26,7 @@ def rss_item(n, f):
     return f"""
     <item>
       <title>{escape(title)}</title>
-      <enclosure> url="{escape(url)}"
+      <enclosure  url="{escape(url)}"
                   length="{length}"
                   type="audio/mpeg"/>
       <guid>{escape(url)}</guid>
