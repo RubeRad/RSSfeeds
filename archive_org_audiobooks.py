@@ -20,7 +20,8 @@ mp3s = [
 # assume they are sorted same as in the DLOD page
 
 def rss_item(n, f):
-    title = f'Chapter {n}'
+    mch = re.search(r'(\d+)\s(\d+).mp3', f['name'])
+    title = f'Part {mch.group(1)}, Chapter {mch.group(2)}'
     url = f"{DLOD}/{f['name']}"
     length = f.get('size', '0')
     return f"""
